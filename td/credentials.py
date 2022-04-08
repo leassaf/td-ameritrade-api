@@ -571,6 +571,10 @@ class TdCredentials():
             print("Refresh Token Expired, initiating oAuth workflow...")
             self.from_workflow()
 
+            # save to json file
+            if self._loaded_from_file:
+                self.to_credential_file(file_path=self._file_path)
+
         if self.is_access_token_expired:
             print("Access Token Expired, refreshing access token...")
             token_dict = self.grab_access_token()

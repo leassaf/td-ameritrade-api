@@ -228,7 +228,7 @@ class StreamingApiClient():
 
                 message = await self.connection.recv()
                 message_decoded = await self._parse_json_message(message=message)
-                print(message_decoded)
+                # print(message_decoded)
 
                 if return_value:
                     return message_decoded
