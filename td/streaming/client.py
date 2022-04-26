@@ -131,7 +131,7 @@ class StreamingApiClient():
         login_request = self._build_login_request()
 
         # Create a connection.
-        self.connection = await ws_client.connect(self.websocket_url)
+        self.connection = await ws_client.connect(self.websocket_url, max_size=2**22)
 
         # See if we are connected.
         is_connected = await self._check_connection()
